@@ -1,0 +1,36 @@
+@import 'primeicons/primeicons.css';
+
+:root {
+  --app-page-bg: linear-gradient(180deg, #f6f8ff 0%, #eef7ff 100%);
+  --app-surface: #ffffff;
+  --app-border: #dce2f1;
+  --app-text: #1b2a41;
+  --app-nav-text: #344767;
+  --app-nav-hover-bg: #dceeff;
+  --app-nav-hover-text: #0f2a4a;
+  color-scheme: light;
+}
+
+html.my-app-dark {
+  --app-page-bg: linear-gradient(180deg, #0b1220 0%, #111827 100%);
+  --app-surface: #0f172a;
+  --app-border: #27354d;
+  --app-text: #e2e8f0;
+  --app-nav-text: #cbd5e1;
+  --app-nav-hover-bg: #1e3a5f;
+  --app-nav-hover-text: #f8fafc;
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--app-page-bg);
+  color: var(--app-text);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.25s ease, color 0.25s ease;
+}
