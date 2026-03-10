@@ -1,0 +1,23 @@
+name: SpendGuard
+
+services:
+  budget-app:
+    image: ${IMAGE_REPO}:${IMAGE_TAG}
+    container_name: spendguard-budget-app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - spendguard-network
+
+networks:
+  spendguard-network:
+    driver: bridge

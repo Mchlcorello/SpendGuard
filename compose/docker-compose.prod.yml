@@ -1,0 +1,10 @@
+services:
+  budget-app:
+    ports:
+      - "80:80"
+    env_file:
+      - .env.prod
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run

@@ -1,0 +1,13 @@
+services:
+  budget-app:
+    image: node:20-alpine
+    ports:
+      - "4200:4200"
+    volumes:
+      - ../budget-app:/app
+      - /app/node_modules
+    environment:
+      APP_ENV: development
+      API_BASE_URL: http://localhost:8081
+    command: sh -c "npm ci && npm run start -- --host 0.0.0.0 --port 4200 --poll 2000"
+    working_dir: /app
